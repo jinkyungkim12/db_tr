@@ -240,14 +240,16 @@ use fruit;
 
 drop table wish;
 drop table review;
-drop table orderOption;
-drop table class_option;
-drop table Like1;
-drop table order1;
-drop table class;
+drop table classOption;
+drop table classProduct;
+drop table oderOption;
+drop table member2;
+drop table classOrder;
 drop table mypage;
 drop table transport;
 drop table member;
+drop table oderOption;
+drop table orderOption;
 
 
 use fruit;
@@ -734,3 +736,248 @@ VALUE ("Lee", "이모티콘 만들기로 하루종일 시간을 보낼정도로 
 ;
 
 SELECT * from review;
+
+
+use fruit;
+
+CREATE TABLE IF NOT EXISTS `fruit`.`member` (
+  `seq` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(45) NULL COMMENT '이름',
+  `id` VARCHAR(45) NULL COMMENT '아이디',
+  `password` VARCHAR(45) NULL COMMENT '비밀번호',
+  `password2` VARCHAR(45) NULL COMMENT '비밀번호 확인',
+  `dob` DATE NULL COMMENT '생년월일',
+  `gender` TINYINT NULL COMMENT '성별',
+  `phone` VARCHAR(45) NULL COMMENT '연락처',
+  `phone2` VARCHAR(45) NULL COMMENT '연락처2',
+  `email` VARCHAR(45) NULL COMMENT '이메일',
+  `address` VARCHAR(45) NULL COMMENT '주소',
+  `div_mobile_agree` TINYINT NULL COMMENT '모바일 수신 1: 동의, 2: 비동의',
+  `div_email_agree` TINYINT NULL COMMENT '이메일 수신 1: 동의, 2: 비동의',
+  `div_personal_infomation` TINYINT NULL COMMENT '개인정보 유효기간 1: 1년, 2: 3년, 3: 10년, 4: 평생회원',
+  PRIMARY KEY (`seq`))
+ENGINE = InnoDB
+;
+CREATE TABLE IF NOT EXISTS `fruit`.`classProduct` (
+  `seq` INT NOT NULL AUTO_INCREMENT,
+  `category` VARCHAR(45) NULL COMMENT '강의카테고리',
+  `title` VARCHAR(45) NULL COMMENT '강의제목',
+  `discountRate` INT NULL COMMENT '할인률',
+  `price` INT NULL COMMENT '구매가격',
+  `priceDiscount` TINYINT NULL COMMENT '총 할인액',
+  `classAmount` VARCHAR(45) NULL COMMENT '클래스 분량',
+  `dateAvailable` VARCHAR(45) NULL COMMENT '수강 가능일',
+  `subtitle` TINYINT NULL COMMENT '자막 포함 여부 1: 포함 2: 불포함',
+  `classInfo` VARCHAR(45) NULL COMMENT '클래스 소개',
+  `curriculum` VARCHAR(45) NULL COMMENT '커리큘럼',
+  `kitInfo` VARCHAR(45) NULL COMMENT '키트 소개',
+  `refund` VARCHAR(45) NULL COMMENT '환불정책',
+  `member_seq` INT NOT NULL,
+  `classOrder_seq` INT NOT NULL,
+  PRIMARY KEY (`seq`),
+  INDEX `fk_classProduct_member_idx` (`member_seq` ASC) VISIBLE,
+  INDEX `fk_classProduct_classOrder1_idx` (`classOrder_seq` ASC) VISIBLE,
+  CONSTRAINT `fk_classProduct_member`
+    FOREIGN KEY (`member_seq`)
+    REFERENCES `fruit`.`member` (`seq`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_classProduct_classOrder1`
+    FOREIGN KEY (`classOrder_seq`)
+    REFERENCES `fruit`.`classOrder` (`seq`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+;
+
+CREATE TABLE IF NOT EXISTS `fruit`.`review` (
+  `seq` INT NOT NULL AUTO_INCREMENT,
+  `id` VARCHAR(45) NULL COMMENT '작성자 아이디',
+  `preference_star` TINYINT NULL COMMENT '별점',
+  `date` DATE NULL COMMENT '작성 날짜',
+  `class_progress_rate` TINYINT NULL COMMENT '작성자 수강 진행률',
+  `content` VARCHAR(45) NULL COMMENT '작성 내용',
+  `comment` INT NULL COMMENT '댓글',
+  `like` INT NULL COMMENT '좋아요',
+  `member_seq` INT NOT NULL,
+  PRIMARY KEY (`seq`),
+  INDEX `fk_review_member1_idx` (`member_seq` ASC) VISIBLE,
+  CONSTRAINT `fk_review_member1`
+    FOREIGN KEY (`member_seq`)
+    REFERENCES `fruit`.`member` (`seq`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+;
+
+CREATE TABLE IF NOT EXISTS `fruit`.`classOrder` (
+  `seq` INT NOT NULL AUTO_INCREMENT,
+  `orderClass_seq` INT NULL,
+  `name` VARCHAR(45) NULL,
+  `phone` VARCHAR(45) NULL,
+  `zipcode` INT NULL,
+  `address` VARCHAR(45) NULL,
+  `addressRequest` VARCHAR(45) NULL,
+  `totalPrice` INT NULL COMMENT '총 상품 금액',
+  `priceDiscount` INT NULL COMMENT '상품 할인 금액',
+  `CouponDiscount` TINYINT NULL COMMENT '쿠폰 할인 금액',
+  `finalPrice` INT NULL COMMENT '최종가격',
+  `order_option` TINYINT NULL COMMENT '결제 방식\n1: 카카오페이 2: 무통장입금',
+  PRIMARY KEY (`seq`))
+ENGINE = InnoDB
+;
+CREATE TABLE IF NOT EXISTS `fruit`.`transport` (
+  `seq` INT NOT NULL AUTO_INCREMENT,
+  `id` VARCHAR(45) NULL,
+  `name` VARCHAR(45) NULL,
+  `phone` INT NULL,
+  `zipcode` INT NULL,
+  `address` VARCHAR(45) NULL,
+  `shippingRequest` VARCHAR(45) NULL,
+  `classOrder_seq` INT NOT NULL,
+  PRIMARY KEY (`seq`),
+  INDEX `fk_transport_classOrder1_idx` (`classOrder_seq` ASC) VISIBLE,
+  CONSTRAINT `fk_transport_classOrder1`
+    FOREIGN KEY (`classOrder_seq`)
+    REFERENCES `fruit`.`classOrder` (`seq`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+;
+
+CREATE TABLE IF NOT EXISTS `fruit`.`orderOption` (
+  `seq` INT NOT NULL AUTO_INCREMENT,
+  `classProduct_seq` INT NOT NULL,
+  PRIMARY KEY (`seq`),
+  INDEX `fk_orderOption_classProduct1_idx` (`classProduct_seq` ASC) VISIBLE,
+  CONSTRAINT `fk_orderOption_classProduct1`
+    FOREIGN KEY (`classProduct_seq`)
+    REFERENCES `fruit`.`classProduct` (`seq`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+CREATE TABLE IF NOT EXISTS `fruit`.`classOption` (
+  `seq` INT NOT NULL AUTO_INCREMENT,
+  `classOption` TINYINT NULL COMMENT '1: 강의, 2: 강의 + 아이패드',
+  `orderOption_seq` INT NOT NULL,
+  `classProduct_seq` INT NOT NULL,
+  PRIMARY KEY (`seq`),
+  INDEX `fk_classOption_orderOption1_idx` (`orderOption_seq` ASC) VISIBLE,
+  INDEX `fk_classOption_classProduct1_idx` (`classProduct_seq` ASC) VISIBLE,
+  CONSTRAINT `fk_classOption_orderOption1`
+    FOREIGN KEY (`orderOption_seq`)
+    REFERENCES `fruit`.`orderOption` (`seq`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_classOption_classProduct1`
+    FOREIGN KEY (`classProduct_seq`)
+    REFERENCES `fruit`.`classProduct` (`seq`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+CREATE TABLE IF NOT EXISTS `fruit`.`member2` (
+  `seq` INT NOT NULL AUTO_INCREMENT,
+  `id` VARCHAR(45) NULL,
+  `name` VARCHAR(45) NULL,
+  `pwd` VARCHAR(45) NULL,
+  `pwd2` VARCHAR(45) NULL,
+  `dob` INT NULL,
+  `gender` TINYINT NULL,
+  PRIMARY KEY (`seq`))
+ENGINE = InnoDB;
+
+-- member
+
+INSERT INTO member(
+	name
+    ,id
+    ,password
+    ,password2
+    ,dob
+    ,gender
+    ,phone
+    ,phone2
+    ,email
+    ,address
+    ,div_mobile_agree
+    ,div_email_agree
+    ,div_personal_infomation
+    )
+VALUE (
+	"jinkyung"
+    ,"yeriel"
+    ,"1234567aa"
+    ,"1234567aa"
+    ,"19930507"
+    ,1
+    ,"01012341234"
+    ,"01012341234"
+    ,"example@naver.com"
+    ,"서울시 강남구"
+    ,1
+    ,2
+    ,2
+)
+;
+INSERT INTO member(name, id, password, password2, dob, gender, phone, phone2, email, address, div_mobile_agree, div_email_agree, div_personal_infomation)
+VALUE ("kang", "nickname1", "1234567a1", "1234567a1", "2000.01.01", 1, "01012341231", "01012341231", "example1@naver.com", "서울시 강남구 1동", 1, 1, 1)
+;
+INSERT INTO member(name, id, password, password2, dob, gender, phone, phone2, email, address, div_mobile_agree, div_email_agree, div_personal_infomation)
+VALUE ("kim", "nickname2", "1234567a2", "1234567a2", "2000.01.02", 1, "01012341232", "01012341232", "example2@naver.com", "서울시 강남구 2동", 1, 1, 2)
+;
+INSERT INTO member(name, id, password, password2, dob, gender, phone, phone2, email, address, div_mobile_agree, div_email_agree, div_personal_infomation)
+VALUE ("Lee", "nickname3", "1234567a3", "1234567a3", "2000.01.03", 2, "01012341233", "01012341233", "example3@naver.com", "서울시 강남구 3동", 1, 2, 2)
+;
+INSERT INTO member(name, id, password, password2, dob, gender, phone, phone2, email, address, div_mobile_agree, div_email_agree, div_personal_infomation)
+VALUE ("Park", "nickname4", "1234567a4", "1234567a4", "2000.01.04", 2, "01012341235", "01012341235", "example4@naver.com", "서울시 강남구 4동", 1, 2, 3)
+;
+INSERT INTO member(name, id, password, password2, dob, gender, phone, phone2, email, address, div_mobile_agree, div_email_agree, div_personal_infomation)
+VALUE ("song", "nickname5", "1234567a5", "1234567a5", "2000.01.05", 1, "01012341236", "01012341236", "example5@naver.com", "서울시 강남구 5동", 1, 1, 3)
+;
+INSERT INTO member(name, id, password, password2, dob, gender, phone, phone2, email, address, div_mobile_agree, div_email_agree, div_personal_infomation)
+VALUE ("cho", "nickname6", "1234567a6", "1234567a6", "2000.01.06", 2, "01012341237", "01012341237", "example6@naver.com", "서울시 강남구 6동", 2, 2, 1)
+;
+INSERT INTO member(name, id, password, password2, dob, gender, phone, phone2, email, address, div_mobile_agree, div_email_agree, div_personal_infomation)
+VALUE ("ko", "nickname7", "1234567a7", "1234567a7", "2000.01.07", 2, "01012341238", "01012341238", "example7@naver.com", "서울시 강남구 7동", 2, 1, 4)
+;
+INSERT INTO member(name, id, password, password2, dob, gender, phone, phone2, email, address, div_mobile_agree, div_email_agree, div_personal_infomation)
+VALUE ("yoon", "nickname8", "1234567a8", "1234567a8", "2000.01.08", 1, "01012341239", "01012341239", "example8@naver.com", "서울시 강남구 8동", 1, 2, 2)
+;
+INSERT INTO member(name, id, password, password2, dob, gender, phone, phone2, email, address, div_mobile_agree, div_email_agree, div_personal_infomation)
+VALUE ("jang", "nickname9", "1234567a9", "1234567a9", "2000.01.09", 1, "01012341240", "01012341240", "example9@naver.com", "서울시 강남구 9동", 2, 2, 3)
+;
+
+select * from member;
+
+ALTER table review change column date reviewDate datetime;
+ALTER TABLE review ADD COLUMN reviewLike int AFTER comment;
+
+-- review
+
+insert into review (
+        member_seq,
+        id,
+        preference_star,
+        reviewDate,
+        class
+        content,
+        comment,
+        reviewLike
+        )
+VALUE ( 
+		"1",
+        "yeriel",
+        5,
+        "2022-02-01 11:00:00"
+        "useful!"
+        "2",
+        2
+        )
+        ;
+        
+
+SELECT * from review;
+
+
