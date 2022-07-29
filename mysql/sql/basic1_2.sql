@@ -1194,7 +1194,7 @@ VALUE (
     220000,
     1
     )
-;
+; 
 
 select * from classOrder;
 ALTER TABLE classOrder MODIFY COLUMN CouponDiscount int;

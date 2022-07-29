@@ -7,7 +7,7 @@ CREATE TABLE IF NOT EXISTS `fruit`.`member2` (
   `name` VARCHAR(45) NULL,
   `pwd` VARCHAR(45) NULL,
   `pwd2` VARCHAR(45) NULL,
-  `dob` INT NULL,
+  `dob` INT NULL,																		
   `gender` TINYINT NULL,
   PRIMARY KEY (`seq`))
 ENGINE = InnoDB
@@ -117,6 +117,14 @@ where 1=1
 -- and dob is null
 and id is null
 ;
+
+-- null 아닌 빈칸 찾고 싶을 때
+
+select * from member2
+where 1=1
+and pwd = ""
+;
+
 
 
 
