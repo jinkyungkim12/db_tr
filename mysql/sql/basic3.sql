@@ -135,5 +135,88 @@ VALUE (
     )
 ;
 
+-- classOrder
+ALTER TABLE classOrder DROP COLUMN orderClass_seq;
+
+INSERT INTO classOrder(
+	name, 
+	phone,
+    zipcode,
+    address,
+    addressRequest,
+    totalPrice,
+    priceDiscount,
+    CouponDiscount,
+    finalPrice,
+    order_option
+    )
+VALUE (
+	"Park",
+    "01012341235",
+    "00005",
+    "서울시 강남구 4동",
+    "none",
+    300000,
+    50000,
+    10000,
+    240000,
+    1
+    )
+;
+INSERT INTO classOrder(
+	name, 
+	phone,
+    zipcode,
+    address,
+    addressRequest,
+    totalPrice,
+    priceDiscount,
+    CouponDiscount,
+    finalPrice,
+    order_option
+    )
+VALUE (
+	"song",
+    "01012341236",
+    "00006",
+    "서울시 강남구 5동",
+    "none",
+    300000,
+    50000,
+    0,
+    250000,
+    2
+    )
+;
+INSERT INTO classOrder(
+	name, 
+	phone,
+    zipcode,
+    address,
+    addressRequest,
+    totalPrice,
+    priceDiscount,
+    CouponDiscount,
+    finalPrice,
+    order_option
+    )
+VALUE (
+	"cho",
+    "01012341237",
+    "00007",
+    "서울시 강남구 6동",
+    "none",
+    300000,
+    50000,
+    30000,
+    220000,
+    1
+    )
+;
+
+select * from classOrder;
+ALTER TABLE classOrder MODIFY COLUMN CouponDiscount int;
+select * from member;
+select * from review;
 
 
