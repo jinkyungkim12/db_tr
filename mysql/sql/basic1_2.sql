@@ -1200,4 +1200,4 @@ select * from classOrder;
 ALTER TABLE classOrder MODIFY COLUMN CouponDiscount int;
 select * from member;
 select * from review;
-
+ 
