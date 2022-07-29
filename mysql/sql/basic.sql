@@ -62,6 +62,62 @@ where seq = 1;
 
 ALTER TABLE classProduct DROP COLUMN class_infomation;
 
+-- where
+
+SELECT * FROM member2
+where 1=1
+and name like 'To%' -- 앞에 있는 두글자 포함
+-- and name like '%ny'   뒤에 있는 두글자 포함
+-- and name like '%ny%' 빈도수 많음 가운데 있는 두글자 포함
+
+-- 게시판 글 검색: like 검색이다. 속도는 떨어지지만 모든 데이터 like사용
+ ;
+SELECT * FROM member2
+where 1=1
+-- and delNY = 0
+-- and delNY > 1
+-- and delNY >= 1
+-- and delNY between 0 and 1
+;
+SELECT * FROM member2
+where 1=1
+-- and nameEng is null  -> null인 데이터 뽑고 싶을 때 사용함
+;
+
+use fruit;
+
+select * from member;
+ SELECT * FROM member
+where 1=1
+-- and name like '%ng';
+ and name like '%so%'
+-- and id like '%ic%'
+-- and password like '%1234%';
+-- and dob like '1993%';
+-- and email like '%@naver.com';
+;
+select * from member
+where 1=1
+-- and div_mobile_agree = 2
+and div_personal_infomation > 3
+
+-- and delNY > 1
+-- and delNY >= 1
+-- and delNY between 0 and 1
+;
+
+select * from member2;
+
+select * from member2
+where 1=1
+-- and name is null;
+-- and pwd is null
+-- and pwd2 is null
+-- and gender is null
+-- and dob is null
+and id is null
+;
 
 
- 
+
+
