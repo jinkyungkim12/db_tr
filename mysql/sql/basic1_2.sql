@@ -2003,11 +2003,326 @@ VALUE (
 ;
 
 
--- 
+-- transport
+INSERT INTO transport(
+	zipcode
+    ,address
+    ,member_seq
+    )
+VALUE (
+	30512
+    ,"서울시 은평구 녹번동"
+    ,1
+)
+;
+INSERT INTO transport(
+	zipcode
+    ,address
+    ,member_seq
+    )
+VALUE (
+	10570
+    ,"서울시 마포구 공덕동"
+    ,1
+)
+;
+INSERT INTO transport(
+	zipcode
+    ,address
+    ,member_seq
+    )
+VALUE (
+	30512
+    ,"서울시 영등포구 여의도동"
+    ,1
+)
+;
+
+INSERT INTO transport(
+	zipcode
+    ,address
+    ,member_seq
+    )
+VALUE (
+	30512
+    ,"서울시 서대문구 홍은동"
+    ,7
+)
+;
+INSERT INTO transport(
+	zipcode
+    ,address
+    ,member_seq
+    )
+VALUE (
+	10570
+    ,"서울시 마포구 연남동"
+    ,7
+)
+;
+INSERT INTO transport(
+	zipcode
+    ,address
+    ,member_seq
+    )
+VALUE (
+	30512
+    ,"서울시 구로구 신도림동"
+    ,7
+)
+;
+
+INSERT INTO transport(
+	zipcode
+    ,address
+    ,member_seq
+    )
+VALUE (
+	30512
+    ,"서울시 강남구 개포동"
+    ,3
+)
+;
+INSERT INTO transport(
+	zipcode
+    ,address
+    ,member_seq
+    )
+VALUE (
+	10570
+    ,"서울시 강남구 역삼동"
+    ,3
+)
+;
+INSERT INTO transport(
+	zipcode
+    ,address
+    ,member_seq
+    )
+VALUE (
+	30512
+    ,"서울시 강남구 신사동"
+    ,3
+)
+;
+
+-- classOrder
+INSERT INTO classOrder(
+	price
+    ,priceDiscount
+    ,CouponDiscount
+    ,finalPrice
+    ,pay
+    ,Request
+    ,classProduct_seq
+    ,member_seq
+    ,transport_seq
+    )
+VALUE (
+	2860000
+    ,114400
+    ,0
+    ,171600
+    ,1
+    ,"none"
+    ,1
+    ,1
+    ,1
+)
+;
+INSERT INTO classOrder(
+	price
+    ,priceDiscount
+    ,CouponDiscount
+    ,finalPrice
+    ,pay
+    ,Request
+    ,classProduct_seq
+    ,member_seq
+    ,transport_seq
+    )
+VALUE (
+	2860000
+    ,114400
+    ,0
+    ,171600
+    ,1
+    ,"none"
+    ,1
+    ,7
+    ,4
+)
+;
+INSERT INTO classOrder(
+	price
+    ,priceDiscount
+    ,CouponDiscount
+    ,finalPrice
+    ,pay
+    ,Request
+    ,classProduct_seq
+    ,member_seq
+    ,transport_seq
+    )
+VALUE (
+	2860000
+    ,114400
+    ,0
+    ,171600
+    ,1
+    ,"none"
+    ,1
+    ,3
+    ,8
+)
+;
+
+INSERT INTO classOrder(
+	price
+    ,priceDiscount
+    ,CouponDiscount
+    ,finalPrice
+    ,pay
+    ,Request
+    ,classProduct_seq
+    ,member_seq
+    ,transport_seq
+    )
+VALUE (
+	234700
+    ,44593
+    ,10000
+    ,180107
+    ,1
+    ,"none"
+    ,2
+    ,7
+    ,5
+)
+;
+INSERT INTO classOrder(
+	price
+    ,priceDiscount
+    ,CouponDiscount
+    ,finalPrice
+    ,pay
+    ,Request
+    ,classProduct_seq
+    ,member_seq
+    ,transport_seq
+    )
+VALUE (
+	234700
+    ,44593
+    ,0
+    ,190107
+    ,1
+    ,"none"
+    ,2
+    ,3
+    ,9
+)
+;
+INSERT INTO classOrder(
+	price
+    ,priceDiscount
+    ,CouponDiscount
+    ,finalPrice
+    ,pay
+    ,Request
+    ,classProduct_seq
+    ,member_seq
+    ,transport_seq
+    )
+VALUE (
+	234700
+    ,44593
+    ,20000
+    ,170107
+    ,1
+    ,"none"
+    ,2
+    ,1
+    ,2
+)
+;
+
+INSERT INTO classOrder(
+	price
+    ,priceDiscount
+    ,CouponDiscount
+    ,finalPrice
+    ,pay
+    ,Request
+    ,classProduct_seq
+    ,member_seq
+    ,transport_seq
+    )
+VALUE (
+	249000
+    ,39840
+    ,10000
+    ,199160
+    ,1
+    ,"none"
+    ,3
+    ,7
+    ,4
+)
+;
+INSERT INTO classOrder(
+	price
+    ,priceDiscount
+    ,CouponDiscount
+    ,finalPrice
+    ,pay
+    ,Request
+    ,classProduct_seq
+    ,member_seq
+    ,transport_seq
+    )
+VALUE (
+	249000
+    ,39840
+    ,0
+    ,209160
+    ,1
+    ,"none"
+    ,3
+    ,3
+    ,7
+)
+;
+INSERT INTO classOrder(
+	price
+    ,priceDiscount
+    ,CouponDiscount
+    ,finalPrice
+    ,pay
+    ,Request
+    ,classProduct_seq
+    ,member_seq
+    ,transport_seq
+    )
+VALUE (
+	249000
+    ,39840
+    ,40000
+    ,159160
+    ,2
+    ,"none"
+    ,3
+    ,1
+    ,1
+)
+;
 
 select * from review;
 select * from member;
 select * from classProduct;
+select * from transport;
+select * from classOrder;
+
 
 
 
