@@ -828,6 +828,41 @@ VALUE (
     ,3
 )
 ;
+INSERT INTO transport(
+	zipcode
+    ,address
+    ,member_seq
+    )
+VALUE (
+	45631
+    ,"서울시 양천구 목동"
+    ,2
+)
+;
+INSERT INTO transport(
+	zipcode
+    ,address
+    ,member_seq
+    )
+VALUE (
+	45631
+    ,"서울시 마포구 창천동"
+    ,2
+)
+;
+INSERT INTO transport(
+	zipcode
+    ,address
+    ,member_seq
+    )
+VALUE (
+	12454
+    ,"서울시 마포구 구수동"
+    ,2
+)
+;
+
+
 
 -- classOrder
 INSERT INTO classOrder(
