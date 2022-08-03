@@ -1082,7 +1082,34 @@ select * from transport;
 select * from classOrder;
  
 
+CREATE TABLE IF NOT EXISTS `fruit`.`CommonCodeGroup` (
+  `seq` INT NOT NULL AUTO_INCREMENT,
+  `Name` VARCHAR(45) NULL,
+  `UseNY` INT NULL,
+  `DelNY` INT NULL,
+  PRIMARY KEY (`seq`))
+ENGINE = InnoDB
+;
 
+CREATE TABLE IF NOT EXISTS `fruit`.`CommonCode` (
+  `seq` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(45) NULL,
+  `useNY` INT NULL,
+  `delNY` INT NULL,
+  `Common Code Group_seq` INT NOT NULL,
+  PRIMARY KEY (`seq`),
+  INDEX `fk_Common Code_Common Code Group1_idx` (`Common Code Group_seq` ASC) VISIBLE,
+  CONSTRAINT `fk_Common Code_Common Code Group1`
+    FOREIGN KEY (`Common Code Group_seq`)
+    REFERENCES `fruit`.`CommonCodeGroup` (`seq`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+;
+
+
+select * from CommonCodeGroup;
+select * from CommonCode;
 
 
 
