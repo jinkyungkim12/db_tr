@@ -1111,6 +1111,11 @@ ENGINE = InnoDB
 select * from CommonCodeGroup;
 select * from CommonCode;
 
+select * from member;
+select * from classProduct;
+select * from classOrder;
+select * from review;
+select * from transport;
 
 
 
