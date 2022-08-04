@@ -1,5 +1,19 @@
 use fruit;
 
+-- cc. ccgName. cc. ccname
+
+select
+	 a.seq
+    ,a.Name
+    ,b.seq
+    ,b.name
+from CommonCodeGroup a
+ left join CommonCode b on b.CommonCodeGroup_seq = a.seq
+-- inner join review b on b.classProduct_seq = a.seq
+-- join review b on b.classProduct_seq = a.seq
+;
+
+
 -- 로그인
 
 select * from member where id="kangsong" and password="songsasda";
@@ -20,6 +34,9 @@ select * from transport where addressDetail like "%아파트%";
 
 
 -- 회원가입
+
+select * from where
+
 
 
 
