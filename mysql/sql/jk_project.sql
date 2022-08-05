@@ -137,7 +137,27 @@ select
  
  where
  1=1
- and a.dob like "&99&"
- and b.address like "서울시%"
+ and a.dob like '199%'
+ and b.address like '서울시%'
  ;
+ 
+ -- member: 이메일에  y가 들어가는 서울 사는 여성
+
+select 
+	a.seq
+    ,a.name
+    ,a.gender
+    ,a.email
+    ,b.member_seq
+    ,b.address
+    
+from member a
+left join transport b on b.member_seq = a.seq
+
+where 
+1=1
+and a.email like '%y%'
+and a.gender like 5
+and b.address like "서울시%"
+;
 
