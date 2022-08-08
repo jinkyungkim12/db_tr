@@ -38,6 +38,19 @@ select
 from member 
 where id="bogum" and password="qhrja57865";
 
+
+
+-- 아이디 검색
+
+select 
+	name,
+    id,
+    password
+from member
+where 1=1
+and id="yeriel"
+and password="1234567aa";
+
 -- 배송 zipcode: 30512, 10570, 78974
 
 select
