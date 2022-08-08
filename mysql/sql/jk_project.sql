@@ -4,7 +4,7 @@ use fruit;
 -- 공통코드 
 select
 	 a.seq
-    ,a.Name
+    ,a.Name 
     ,b.seq
     ,b.name
 from CommonCodeGroup a
@@ -14,7 +14,7 @@ from CommonCodeGroup a
 ;
 
 
--- 로그인/ 아이디, 비번 찾기
+-- 로그인/ 아이디, 비번 찾기!!
 
 select
 	name
