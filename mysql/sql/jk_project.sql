@@ -1,7 +1,7 @@
 use fruit;
 
 -- cc. ccgName. cc. ccname
-
+-- 공통코드 
 select
 	 a.seq
     ,a.Name
@@ -21,75 +21,67 @@ select
     ,id
     ,password
 from member 
-where id="kangsong" and password="songsasda";
+where id="kangsong" and password="songsasda"
+;
 
-
-select
-	name
-    ,id
-    ,password
-from member 
-where id="suzybae" and password="suzy121235yzus";
-
-select
-	name
-    ,id
-    ,password
-from member 
-where id="bogum" and password="qhrja57865";
-
-
-
--- 아이디 검색
+-- 메인 오늘의 특가
 
 select 
-	name,
-    id,
-    password
-from member
-where 1=1
-and id="yeriel"
-and password="1234567aa";
-
--- 배송 zipcode: 30512, 10570, 78974
-
-select
-	a.seq
-	,a.name
-    ,a.id
-    ,b.member_seq
-    ,b.zipcode
-from member a
-left join transport b on b.member_seq = a.seq
-where 
+	classDiv,
+    category,
+    title,
+    discountRate,
+    price,
+    payMonth
+from classProduct
+where
 1=1
-and b.zipcode like "30512"
-;
-select
-	a.seq
-	,a.name
-    ,a.id
-    ,b.member_seq
-    ,b.zipcode
-from member a
-left join transport b on b.member_seq = a.seq
-where 
-1=1
-and b.zipcode like "10570"
+and classDiv="25"
+and category="굿즈,이모티콘"
+and title="이모티콘 작가와 함께, 쉽게 배우는 이모티콘"
+and discountRate=40
+and price=286000
+and payMonth=16
 ;
 
-select
-	a.seq
-	,a.name
-    ,a.id
-    ,b.member_seq
-    ,b.zipcode
-from member a
-left join transport b on b.member_seq = a.seq
-where 
+-- 메인 MD 추천 클래스
+
+select 
+	classDiv,
+    category,
+    title,
+    discountRate,
+    price,
+    payMonth
+from classProduct
+where
 1=1
-and b.zipcode like "78974"
+and classDiv="26"
+and category="근영쌤"
+and title="영어 회화 1위 근영쌤의 '유창한 회화로 바로 뱉는 100% 진짜 단어 공부법'"
+and discountRate=19
+and price=219400
+and payMonth=16
 ;
+
+
+
+
+-- 제품 상세
+
+-- 제품 상세 , 후기
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 -- 배송지: 강남구, 아파트 사는 사람
@@ -238,3 +230,134 @@ and a.gender like 5
 and b.address like "서울시%"
 ;
 
+-- 아이디, 비번 검색
+
+select 
+	name,
+    id,
+    password
+from member
+where 1=1
+and id="yeriel"
+and password="1234567aa";
+
+select 
+	name,
+    id,
+    password
+from member
+where 1=1
+and id="chacha"
+and password="enwsakjflajsf";
+
+select 
+	name,
+    id,
+    password
+from member
+where 1=1
+and id="kangsong"
+and password="songsasda";
+
+select 
+	name,
+    id,
+    password
+from member
+where 1=1
+and id="yunakk"
+and password="yuna1234anuy";
+
+select 
+	name,
+    id,
+    password
+from member
+where 1=1
+and id="suzybae"
+and password="suzy121235yzus";
+
+select 
+	name,
+    id,
+    password
+from member
+where 1=1
+and id="ywyw"
+and password="jangwoo1234";
+
+select 
+	name,
+    id,
+    password
+from member
+where 1=1
+and id="ubini"
+and password="kimubin52541";
+
+select 
+	name,
+    id,
+    password
+from member
+where 1=1
+and id="Leejs"
+and password="jsl5645213";
+
+select 
+	name,
+    id,
+    password
+from member
+where 1=1
+and id="eunbini"
+and password="EEBB463415";
+
+select 
+	name,
+    id,
+    password
+from member
+where 1=1
+and id="bogum"
+and password="qhrja57865";
+
+-- 배송 zipcode: 30512, 10570, 78974
+
+select
+	a.seq
+	,a.name
+    ,a.id
+    ,b.member_seq
+    ,b.zipcode
+from member a
+left join transport b on b.member_seq = a.seq
+where 
+1=1
+and b.zipcode like "30512"
+;
+select
+	a.seq
+	,a.name
+    ,a.id
+    ,b.member_seq
+    ,b.zipcode
+from member a
+left join transport b on b.member_seq = a.seq
+where 
+1=1
+and b.zipcode like "10570"
+;
+
+select
+	a.seq
+	,a.name
+    ,a.id
+    ,b.member_seq
+    ,b.zipcode
+from member a
+left join transport b on b.member_seq = a.seq
+where 
+1=1
+and b.zipcode like "78974"
+;
