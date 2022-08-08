@@ -16,7 +16,9 @@ from CommonCodeGroup a
 
 -- 로그인
 
-select * from member where id="kangsong" and password="songsasda";
+select
+from member a
+ where id="kangsong" and password="songsasda";
 select * from member where id="suzybae" and password="suzy121235yzus";
 select * from member where id="bogum" and password="qhrja57865";
 
