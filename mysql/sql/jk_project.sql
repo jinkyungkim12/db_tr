@@ -27,52 +27,181 @@ where id="kangsong" and password="songsasda"
 -- 메인 오늘의 특가
 
 select 
-	classDiv,
+	seq,
+    classDiv,
     category,
     title,
     discountRate,
     price,
     payMonth
 from classProduct
-where
-1=1
-and classDiv="25"
-and category="굿즈,이모티콘"
-and title="이모티콘 작가와 함께, 쉽게 배우는 이모티콘"
-and discountRate=40
-and price=286000
-and payMonth=16
+where 
+classDiv like "25"
 ;
+
 
 -- 메인 MD 추천 클래스
 
 select 
-	classDiv,
+	seq,
+    classDiv,
     category,
     title,
     discountRate,
     price,
     payMonth
 from classProduct
-where
-1=1
-and classDiv="26"
-and category="근영쌤"
-and title="영어 회화 1위 근영쌤의 '유창한 회화로 바로 뱉는 100% 진짜 단어 공부법'"
-and discountRate=19
-and price=219400
-and payMonth=16
+where 
+classDiv like "26"
 ;
 
 
 
+-- 오픈 예정클래스 
+
+select 
+	seq,
+    classDiv,
+    category,
+    title
+from classProduct
+where 
+classDiv like "27"
+;
+
 
 -- 제품 상세
+--  1번 제품 상세, 클래스 정보
+
+select 
+	seq,
+    title,
+    classAmount,
+    dateNY,
+    subtitleNY
+from classProduct
+where
+1=1
+and seq like 1
+;
+
+-- 모든 제품 상제, 클래스 정보
+select
+	seq,
+    title,
+    classAmount,
+    dateNY,
+    subtitleNY
+from classProduct
+;
 
 -- 제품 상세 , 후기
+-- 1번 클래스 제품 후기
+select
+	a.classProduct_seq,
+    a.id,
+    a.preferenceStar,
+    a.reviewDate,
+    a.classProgressRate,
+    a.content,
+    a.reviewLike,
+    b.seq
+from review a
+left join classProduct b on b.seq = a.classProduct_seq 
+where
+a.classProduct_seq like "1"
+; 
+
+-- 모든 제품 후기
+select
+	a.classProduct_seq,
+    a.id,
+    a.preferenceStar,
+    a.reviewDate,
+    a.classProgressRate,
+    a.content,
+    a.reviewLike,
+    b.seq
+from review a
+left join classProduct b on b.seq = a.classProduct_seq 
+;
+
+-- 1번 제품 상세, 상세 정보
+select
+	seq,
+    classInfo
+from classProduct
+where 
+seq=1
+;
+
+-- 모든 제품 상제정보
+select
+	seq,
+    classInfo
+from classProduct
+;
 
 
+-- 1번 제품 상세, 커리큘럼
 
+select
+	seq,
+    curriculum
+from classProduct
+where
+seq=1
+;
+
+-- 모든 제품 커리큘럼
+
+select
+	seq,
+    curriculum
+from classProduct
+;
+
+
+-- 1번 제품 상세, 키트정보
+
+select
+	seq,
+    kitNY,
+    kitInfo
+from classProduct
+where
+1=1
+and seq=1
+;
+
+-- 모든 제품 키트정보
+select
+	seq,
+    kitNY,
+    kitInfo
+from classProduct
+;
+
+
+-- 1번 제품, 환불정보
+select
+	seq,
+    refund
+from classProduct
+where
+1=1
+and seq=1
+;
+
+-- 모든 제품, 환불정보
+select
+	seq,
+    refund
+from classProduct
+;
+
+
+-- 1번 제품, 구매정보
 
 
 

@@ -1118,6 +1118,3 @@ select * from review;
 select * from transport;
 
 
-
-
-
