@@ -209,7 +209,22 @@ from classProduct a
 ;
 
 
--- 1번 제품, 구매정보
+-- 1번 제품, 구매정보 (라이크 수가 합쳐져 나왔으면 좋겠음..)
+select
+	a.seq,
+    a.category,
+    a.title,
+    a.payMonth,
+    a.discountRate,
+    a.price,
+    b.likeAmount,
+    b.classProduct_seq
+from classProduct a
+left join productLike b on b.classProduct_seq = a.seq
+where
+	1=1
+    and a.seq = 1
+;
 
 
 
@@ -217,7 +232,8 @@ from classProduct a
 
 
 
-
+-- like table
+-- dmin member List 쿼리 
 
 
 

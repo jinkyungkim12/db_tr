@@ -1107,6 +1107,21 @@ CREATE TABLE IF NOT EXISTS `fruit`.`CommonCode` (
 ENGINE = InnoDB
 ;
 
+CREATE TABLE IF NOT EXISTS `fruit`.`Like` (
+  `seq` INT NOT NULL AUTO_INCREMENT,
+  `id` VARCHAR(45) NULL,
+  `likeAmount` INT NULL,
+  `classProduct_seq` INT NOT NULL,
+  PRIMARY KEY (`seq`),
+  INDEX `fk_Like_classProduct1_idx` (`classProduct_seq` ASC) VISIBLE,
+  CONSTRAINT `fk_Like_classProduct1`
+    FOREIGN KEY (`classProduct_seq`)
+    REFERENCES `fruit`.`classProduct` (`seq`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+;
+
 
 select * from CommonCodeGroup;
 select * from CommonCode;
@@ -1116,6 +1131,5 @@ select * from classProduct;
 select * from classOrder;
 select * from review;
 select * from transport;
+select * from productLike;
 
--- like 테이블 만들어서 누가 좋아요 눌렀는지 볼 수 있게 하기
--- 관리자용 member 테이블 만들기
