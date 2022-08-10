@@ -1117,4 +1117,5 @@ select * from classOrder;
 select * from review;
 select * from transport;
 
-
+-- like 테이블 만들어서 누가 좋아요 눌렀는지 볼 수 있게 하기
+-- 관리자용 member 테이블 만들기

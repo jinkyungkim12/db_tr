@@ -27,32 +27,35 @@ where id="kangsong" and password="songsasda"
 -- 메인 오늘의 특가
 
 select 
-	seq,
-    classDiv,
-    category,
-    title,
-    discountRate,
-    price,
-    payMonth
-from classProduct
+	a.seq,
+    a.classDiv,
+    a.category,
+    a.title,
+    a.discountRate,
+    a.price,
+    a.payMonth
+from 
+	classProduct a
 where 
-classDiv like "25"
+	1=1
+	and a.classDiv =25
 ;
 
 
 -- 메인 MD 추천 클래스
 
 select 
-	seq,
-    classDiv,
-    category,
-    title,
-    discountRate,
-    price,
-    payMonth
-from classProduct
+	a.seq,
+    a.classDiv,
+    a.category,
+    a.title,
+    a.discountRate,
+    a.price,
+    a.payMonth
+from classProduct a
 where 
-classDiv like "26"
+	1=1
+	and classDiv = 26
 ;
 
 
@@ -60,13 +63,14 @@ classDiv like "26"
 -- 오픈 예정클래스 
 
 select 
-	seq,
-    classDiv,
-    category,
-    title
-from classProduct
+	a.seq,
+    a.classDiv,
+    a.category,
+    a.title
+from classProduct a
 where 
-classDiv like "27"
+	1=1
+	and classDiv = 27
 ;
 
 
@@ -74,25 +78,26 @@ classDiv like "27"
 --  1번 제품 상세, 클래스 정보
 
 select 
-	seq,
-    title,
-    classAmount,
-    dateNY,
-    subtitleNY
-from classProduct
+	a.seq,
+    a.title,
+    a.classAmount,
+    a.dateNY,
+    a.subtitleNY
+from classProduct a
 where
 1=1
-and seq like 1
+and seq = 1
 ;
 
 -- 모든 제품 상제, 클래스 정보
 select
-	seq,
-    title,
-    classAmount,
-    dateNY,
-    subtitleNY
-from classProduct
+	a.seq,
+    a.title,
+    a.classAmount,
+    a.dateNY,
+    a.subtitleNY,
+    a.classDiv
+from classProduct a
 ;
 
 -- 제품 상세 , 후기
@@ -109,7 +114,8 @@ select
 from review a
 left join classProduct b on b.seq = a.classProduct_seq 
 where
-a.classProduct_seq like "1"
+	1=1
+	and a.classProduct_seq = 1
 ; 
 
 -- 모든 제품 후기
@@ -128,47 +134,49 @@ left join classProduct b on b.seq = a.classProduct_seq
 
 -- 1번 제품 상세, 상세 정보
 select
-	seq,
-    classInfo
-from classProduct
+	a.seq,
+    a.classInfo
+from classProduct a
 where 
-seq=1
+	1=1
+	and seq=1
 ;
 
 -- 모든 제품 상제정보
 select
-	seq,
-    classInfo
-from classProduct
+	a.seq,
+    a.classInfo
+from classProduct a
 ;
 
 
 -- 1번 제품 상세, 커리큘럼
 
 select
-	seq,
-    curriculum
-from classProduct
+	a.seq,
+    a.curriculum
+from classProduct a
 where
-seq=1
+	1=1
+	and seq=1
 ;
 
 -- 모든 제품 커리큘럼
 
 select
-	seq,
-    curriculum
-from classProduct
+	a.seq,
+    a.curriculum
+from classProduct a
 ;
 
 
 -- 1번 제품 상세, 키트정보
 
 select
-	seq,
-    kitNY,
-    kitInfo
-from classProduct
+	a.seq,
+    a.kitNY,
+    a.kitInfo
+from classProduct a
 where
 1=1
 and seq=1
@@ -176,18 +184,18 @@ and seq=1
 
 -- 모든 제품 키트정보
 select
-	seq,
-    kitNY,
-    kitInfo
-from classProduct
+	a.seq,
+    a.kitNY,
+    a.kitInfo
+from classProduct a
 ;
 
 
 -- 1번 제품, 환불정보
 select
-	seq,
-    refund
-from classProduct
+	a.seq,
+    a.refund
+from classProduct a
 where
 1=1
 and seq=1
@@ -195,9 +203,9 @@ and seq=1
 
 -- 모든 제품, 환불정보
 select
-	seq,
-    refund
-from classProduct
+	a.seq,
+    a.refund
+from classProduct a
 ;
 
 
