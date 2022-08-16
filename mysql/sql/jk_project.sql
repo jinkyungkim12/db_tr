@@ -209,7 +209,7 @@ from classProduct a
 ;
 
 
--- 1번 제품, 구매정보 (라이크 수가 합쳐져 나왔으면 좋겠음..)
+-- 1번 제품, 구매정보
 select
 	a.seq,
     a.category,
@@ -217,24 +217,59 @@ select
     a.payMonth,
     a.discountRate,
     a.price,
-    b.likeAmount,
-    b.classProduct_seq
+    (select b.priceDiscount from classOrder b where b.seq =1) as priceDiscount,
+    a.productLike
 from classProduct a
-left join productLike b on b.classProduct_seq = a.seq
-where
+where 
 	1=1
-    and a.seq = 1
+    and a.seq=1
+;
+
+-- 모든 제품, 구매정보
+select
+	a.seq,
+    a.category,
+    a.title,
+    a.payMonth,
+    a.discountRate,
+    a.price,
+    b.priceDiscount,
+    a.productLike,
+    b.defaultNY
+from classProduct a
+left join classOrder b on b.classProduct_seq = a.seq
+where
+ 1=1
+ and b.defaultNY=1
+ order by
+	a.category asc
 ;
 
 
+-- 구매 
 
 
 
 
 
--- like table
--- dmin member List 쿼리 
 
+-- dmin member List
+select
+	a.seq,
+    a.name,
+    a.id,
+    a.position,
+    a.gender,
+    a.dob,
+    a.phone,
+    a.phone2,
+    a.email,
+    a.mobileNY,
+    a.emailNY,
+    a.personalInfo,
+    a.delNY
+from member a
+;
 
 
 -- 배송지: 강남구, 아파트 사는 사람

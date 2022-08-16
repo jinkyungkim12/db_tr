@@ -1,4 +1,4 @@
-membermemberuse fruit;
+use fruit;
 
 select * from member;
 

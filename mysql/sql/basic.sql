@@ -127,5 +127,15 @@ and pwd = ""
 
 
 
+-- order by
 
+-- oder by
+-- a. ~~~
+-- a. ~~~ asc 정방향 순서
+-- a. ~~~ desc 역방향 순서
+
+
+-- sub select
+-- a. ~~~
+-- (select a.~~~ from table~~ where 1=1 and ~~~ = ~~~~ ;) >> data 한개만 불러오고 싶을 때 사용한데, 여러개 불러올때는 join 사용하기!!!
 

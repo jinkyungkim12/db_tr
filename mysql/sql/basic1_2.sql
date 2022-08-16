@@ -1131,5 +1131,3 @@ select * from classProduct;
 select * from classOrder;
 select * from review;
 select * from transport;
-select * from productLike;
-
