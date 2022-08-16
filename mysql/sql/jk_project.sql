@@ -209,7 +209,7 @@ from classProduct a
 ;
 
 
--- 1번 제품, 구매정보
+-- 1번 제품, 구매정보 subQuery 사용
 select
 	a.seq,
     a.category,
@@ -217,7 +217,7 @@ select
     a.payMonth,
     a.discountRate,
     a.price,
-    (select b.priceDiscount from classOrder b where b.seq =1) as priceDiscount,
+    (select aa.priceDiscount from classOrder aa where aa.seq =1) as priceDiscount,
     a.productLike
 from classProduct a
 where 
@@ -225,7 +225,7 @@ where
     and a.seq=1
 ;
 
--- 모든 제품, 구매정보
+-- 모든 제품, 구매정보 Orderby, DefaultNy 사용
 select
 	a.seq,
     a.category,
@@ -234,8 +234,7 @@ select
     a.discountRate,
     a.price,
     b.priceDiscount,
-    a.productLike,
-    b.defaultNY
+    a.productLike
 from classProduct a
 left join classOrder b on b.classProduct_seq = a.seq
 where

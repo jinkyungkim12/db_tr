@@ -137,5 +137,6 @@ and pwd = ""
 
 -- sub select
 -- a. ~~~
--- (select a.~~~ from table~~ where 1=1 and ~~~ = ~~~~ ;) >> data 한개만 불러오고 싶을 때 사용한데, 여러개 불러올때는 join 사용하기!!!
+-- (select aa.~~~ from table~~ aa where 1=1 and aa.~~~ = ~~~~ ;) >> data 한개만 불러오고 싶을 때 사용한데, 여러개 불러올때는 join 사용하기!!!/ 
+-- 알리아스 쓸때 subQuery는 하위단계이기 때문에 알파벳 2개 쓰기!
 
