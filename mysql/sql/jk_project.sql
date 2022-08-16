@@ -245,6 +245,8 @@ where
 ;
 
 
+-- ProductLike 테이블 만들고 group by, sum 이용해서 합산한 값 나타내기..
+
 -- 구매 
 
 
