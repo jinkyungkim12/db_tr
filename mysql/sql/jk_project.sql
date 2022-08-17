@@ -249,6 +249,35 @@ where
 
 -- 구매 
 
+-- union; 1번, 2번 제품 같은 테이블에 보여주기
+select
+	a.seq,
+    a.category,
+    a.title,
+    a.payMonth,
+    a.discountRate,
+    a.price,
+    (select aa.priceDiscount from classOrder aa where aa.seq =1) as priceDiscount,
+    a.productLike
+from classProduct a
+where 
+	1=1
+    and a.seq=1
+union
+select
+	a.seq,
+    a.category,
+    a.title,
+    a.payMonth,
+    a.discountRate,
+    a.price,
+    (select aa.priceDiscount from classOrder aa where aa.seq =1) as priceDiscount,
+    a.productLike
+from classProduct a
+where 
+	1=1
+    and a.seq=2
+;
 
 
 
