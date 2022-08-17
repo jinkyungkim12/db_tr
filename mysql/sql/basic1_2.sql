@@ -1122,6 +1122,20 @@ CREATE TABLE IF NOT EXISTS `fruit`.`Like` (
 ENGINE = InnoDB
 ;
 
+CREATE TABLE IF NOT EXISTS `fruit`.`productLike` (
+  `seq` INT NOT NULL,
+  `id` VARCHAR(45) NULL,
+  `likeAmount` INT NULL,
+  `classProduct_seq` INT NOT NULL,
+  PRIMARY KEY (`seq`),
+  INDEX `fk_ProductLike_classProduct1_idx` (`classProduct_seq` ASC) VISIBLE,
+  CONSTRAINT `fk_ProductLike_classProduct1`
+    FOREIGN KEY (`classProduct_seq`)
+    REFERENCES `fruit`.`classProduct` (`seq`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+;
 
 select * from CommonCodeGroup;
 select * from CommonCode;
@@ -1131,3 +1145,7 @@ select * from classProduct;
 select * from classOrder;
 select * from review;
 select * from transport;
+select * from productLike;
+
+
+
