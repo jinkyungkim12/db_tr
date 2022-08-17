@@ -246,8 +246,27 @@ where
 
 
 -- ProductLike 테이블 만들고 group by, sum 이용해서 합산한 값 나타내기..
+-- 1번제품 정보
+select
+	a.seq,
+    a.category,
+    a.title,
+    a.payMonth,
+    a.discountRate,
+    a.price,
+    (select aa.priceDiscount from classOrder aa where aa.seq =1) as priceDiscount,
+    sum(b.likeAmount) as likeAmount
+from classProduct a
+left join productLike b on b.classProduct_seq = a.seq
+where 
+	1=1
+    and a.seq=1
+group by b.likeAmount having b.likeAmount <2
+;
 
--- 구매 
+
+
+
 
 -- union; 1번, 2번 제품 같은 테이블에 보여주기
 select
@@ -328,6 +347,22 @@ select
     a.delNY
 from member a
 ;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 -- 배송지: 강남구, 아파트 사는 사람
