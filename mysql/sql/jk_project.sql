@@ -279,7 +279,35 @@ where
     and a.seq=2
 ;
 
-
+-- union all
+select
+	a.seq,
+    a.category,
+    a.title,
+    a.payMonth,
+    a.discountRate,
+    a.price,
+    (select aa.priceDiscount from classOrder aa where aa.seq =1) as priceDiscount,
+    a.productLike
+from classProduct a
+where 
+	1=1
+    and a.seq=1
+union all
+select
+	a.seq,
+    a.category,
+    a.title,
+    a.payMonth,
+    a.discountRate,
+    a.price,
+    (select aa.priceDiscount from classOrder aa where aa.seq =1) as priceDiscount,
+    a.productLike
+from classProduct a
+where 
+	1=1
+    and a.seq=2
+;
 
 
 
