@@ -264,10 +264,6 @@ where
 group by b.likeAmount having b.likeAmount <2
 ;
 
-
-
-
-
 -- union; 1번, 2번 제품 같은 테이블에 보여주기
 select
 	a.seq,
@@ -349,7 +345,7 @@ from member a
 ;
 
 
-
+-- 구매
 
 
 

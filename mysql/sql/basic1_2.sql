@@ -1137,6 +1137,38 @@ CREATE TABLE IF NOT EXISTS `fruit`.`productLike` (
 ENGINE = InnoDB
 ;
 
+CREATE TABLE IF NOT EXISTS `fruit`.`productUploaded` (
+  `seq` INT NOT NULL AUTO_INCREMENT,
+  `type` TINYINT NULL,
+  `defaultNy` TINYINT NULL,
+  `sort` TINYINT NULL,
+  `originalName` VARCHAR(45) NULL,
+  `uuidName` VARCHAR(45) NULL,
+  `ext` VARCHAR(45) NULL,
+  `size` BIGINT NULL,
+  `delNY` TINYINT NULL,
+  `pseq` BIGINT NULL,
+  PRIMARY KEY (`seq`))
+ENGINE = InnoDB
+;
+
+CREATE TABLE IF NOT EXISTS `fruit`.`memberUploaded` (
+  `seq` INT NOT NULL AUTO_INCREMENT,
+  `type` TINYINT NULL,
+  `defaultNY` TINYINT NULL,
+  `sort` TINYINT NULL,
+  `originalName` VARCHAR(45) NULL,
+  `uuidName` VARCHAR(45) NULL,
+  `ext` VARCHAR(45) NULL,
+  `size` BIGINT NULL,
+  `delNY` TINYINT NULL,
+  `pesq` BIGINT NULL,
+  PRIMARY KEY (`seq`))
+ENGINE = InnoDB
+;
+
+
+
 select * from CommonCodeGroup;
 select * from CommonCode;
 
@@ -1146,6 +1178,6 @@ select * from classOrder;
 select * from review;
 select * from transport;
 select * from productLike;
-
-
+select * from productUploaded;
+select * from memberUploaded;
 
