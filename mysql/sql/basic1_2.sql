@@ -1169,7 +1169,7 @@ ENGINE = InnoDB
 
 
 
-select * from CommonCodeGroup;
+select * from CommonCodeGroup; 
 select * from CommonCode;
 
 select * from member;
