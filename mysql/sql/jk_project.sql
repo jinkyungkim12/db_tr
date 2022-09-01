@@ -13,6 +13,30 @@ from codeGroup a
 -- join review b on b.classProduct_seq = a.seq
 ;
 
+SELECT
+	a.*
+FROM codeGroup a
+WHERE 1=1
+	AND delNY = 0
+	;
+
+
+select
+	 b.seq
+	,b.codeGroup_seq
+	,a.nameKr
+    ,b.code
+    ,b.codeAnother
+    ,b.codeNameKr
+    ,b.codeName
+    ,b.useNY
+    ,b.delNY
+    ,b.order
+from codeGroup a
+ left join code b on b.codeGroup_seq = a.seq
+ WHERE 1=1
+	AND b.delNY = 0
+;
 
 -- 로그인/ 아이디, 비번 찾기!!
 
