@@ -1169,8 +1169,8 @@ ENGINE = InnoDB
 
 
 
-select * from CommonCodeGroup; 
-select * from CommonCode;
+select * from codeGroup; 
+select * from code;
 
 select * from member;
 select * from classProduct;

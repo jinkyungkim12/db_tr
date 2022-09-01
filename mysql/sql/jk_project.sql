@@ -4,11 +4,11 @@ use fruit;
 -- 공통코드 
 select
 	 a.seq
-    ,a.Name 
+    ,a.name 
     ,b.seq
     ,b.name
-from CommonCodeGroup a
- left join CommonCode b on b.CommonCodeGroup_seq = a.seq
+from codeGroup a
+ left join code b on b.codeGroup_seq = a.seq
 -- inner join review b on b.classProduct_seq = a.seq
 -- join review b on b.classProduct_seq = a.seq
 ;
