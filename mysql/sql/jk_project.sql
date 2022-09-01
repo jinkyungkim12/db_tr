@@ -41,15 +41,12 @@ select count(*)
 
 
  SELECT
-      a.name
-      ,(SELECT COUNT(codeGroup_seq) FROM codeGroup a WHERE a_seq = b.codeGroup_seq) AS codeNum
-   FROM
-      codeGroup a,
-      code b;
-
-
-
-
+      a.nameKr
+      ,(SELECT COUNT(b.codeGroup_seq) FROM code b WHERE b.codeGroup_seq =a.seq) AS codeNum
+   FROM codeGroup a
+     WHERE 1=1
+	AND a.delNY = 0
+		;
 
 select
 	 b.seq
