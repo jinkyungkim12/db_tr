@@ -1167,7 +1167,7 @@ CREATE TABLE IF NOT EXISTS `fruit`.`memberUploaded` (
 ENGINE = InnoDB
 ;
 
-
+use fruit;
 
 select * from codeGroup; 
 select * from code;

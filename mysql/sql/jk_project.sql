@@ -21,6 +21,36 @@ WHERE 1=1
 	;
 
 
+	SELECT
+			a.seq
+            ,a.codeGroupCode
+            ,a.nameKr
+            ,a.name
+            ,(select count(aa.codeGroup_seq) from code aa where aa.delNY=0 and aa.codeGroupseq=a.seq)as codeNum
+            ,a.delNY
+            ,a.useNY
+		FROM codeGroup a
+		WHERE 1=1
+			AND delNY = 0
+		;
+
+select count(*)
+	from code a	
+	WHERE a.codeGroup_seq = 1
+    ;
+
+
+ SELECT
+      a.name
+      ,(SELECT COUNT(codeGroup_seq) FROM codeGroup a WHERE a_seq = b.codeGroup_seq) AS codeNum
+   FROM
+      codeGroup a,
+      code b;
+
+
+
+
+
 select
 	 b.seq
 	,b.codeGroup_seq
