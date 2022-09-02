@@ -39,6 +39,12 @@ select count(*)
 	WHERE a.codeGroup_seq = 1
     ;
 
+select a.*
+FROM chooseTest a
+WHERE 1=1
+	AND delNY = 0
+	;
+
 
  SELECT
       a.nameKr
