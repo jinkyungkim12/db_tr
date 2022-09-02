@@ -71,6 +71,50 @@ from codeGroup a
 	AND b.delNY = 0
 ;
 
+
+
+-- memberList
+select a.seq
+	  ,a.name
+      ,a.id
+      ,a.position
+      ,a.gender
+      ,a.dob
+      ,a.phone
+      ,a.email
+      ,a.mobileNY
+      ,a.emailNY
+      ,a.personalInfo
+      ,a.delNY
+      ,a.regDatetime
+FROM member a
+WHERE 1=1
+	AND delNY = 0
+	;
+
+
+
+select 
+	a.seq
+	  ,a.name
+	  ,a.id
+	  ,a.position
+	  ,a.gender
+	  ,a.dob
+	  ,a.phone
+	  ,a.email
+	  ,a.mobileNY
+	  ,a.emailNY
+	  ,a.personalInfo
+	  ,a.delNY
+	  ,a.regDatetime
+FROM member a
+WHERE 1=1
+	AND delNY = 0
+;
+
+
+
 -- 로그인/ 아이디, 비번 찾기!!
 
 select
