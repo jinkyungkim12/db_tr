@@ -71,7 +71,7 @@ from codeGroup a
 	AND b.delNY = 0
 ;
 
-
+-- insert
 
 -- memberList
 select a.seq
