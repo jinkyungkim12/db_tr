@@ -80,6 +80,8 @@ select a.seq
       ,a.position
       ,a.gender
       ,a.dob
+      
+      
       ,a.phone
       ,a.email
       ,a.mobileNY
