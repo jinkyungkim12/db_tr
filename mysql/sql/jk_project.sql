@@ -72,6 +72,31 @@ from codeGroup a
 ;
 
 -- insert
+SELECT
+			a.seq
+            ,a.name
+            ,a.id
+            ,a.password
+            ,a.dob
+            ,a.emailInsert
+            ,a.phone
+            ,a.phone2
+			,b.zipcode
+            ,b.address
+            ,b.addressDetail
+			FROM member a
+			left join transport b on b.member_seq = a.seq
+			WHERE 1=1
+;
+
+SELECT
+			a.*
+            ,b.*
+			FROM member a
+			left join transport b on b.member_seq = a.seq
+			WHERE 1=1
+;
+
 
 -- memberList
 select a.seq
