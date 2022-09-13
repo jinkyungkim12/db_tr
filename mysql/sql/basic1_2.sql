@@ -1173,6 +1173,7 @@ select * from codeGroup;
 select * from code;
 
 select * from member;
+
 select * from classProduct;
 select * from classOrder;
 select * from review;
