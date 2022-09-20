@@ -1169,7 +1169,7 @@ ENGINE = InnoDB
 
 use fruit;
 
-select * from codeGroup; 
+select * from codeGroup;  
 select * from code;
 
 select * from member;
