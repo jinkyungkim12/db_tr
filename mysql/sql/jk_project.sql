@@ -2,7 +2,7 @@ use fruit;
 
 -- cc. ccgName. cc. ccname
 -- 공통코드 
-select
+select   
 	 a.seq
     ,a.name 
     ,b.seq
