@@ -151,3 +151,9 @@ and pwd = ""
 
 
 -- 파일 첨부
+
+-- index
+
+-- SHOW index from review;
+-- create index abc on review (reviewDelNY, member_seq);
+-- alter table review drop index abc;
